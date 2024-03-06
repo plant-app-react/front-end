@@ -1,9 +1,9 @@
 
 function Navbar() {
     return (
-        <>
-            <h1>This is the NavBar</h1>
-        </>
+        <div>
+            <h1 className="text-3xl font-bold underline">This is the NavBar</h1>
+        </div>
     )
 }
 
