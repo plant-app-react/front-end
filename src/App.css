@@ -1,0 +1,12 @@
+.AddPlantForm form {
+    margin: 0 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.AddPlantForm form label input{
+    background-color: #cfebe5;
+    padding: 3px;
+    border-radius: 5px;
+    margin: 0 10px;
+  }

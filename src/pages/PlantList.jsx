@@ -68,11 +68,11 @@ function PlantList() {
     return (
         <div>
             <div className="flex justify-center my-12">
-                <button onClick={toggleFormVisibility} className="bg-green-800 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full">
+                <button onClick={toggleFormVisibility} className="bg-green-700 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full">
                     Add Plant! 🌱
                 </button>
             </div>
-            {isFormVisible && <AddPlantForm onAddPlant={handleAddPlant} />}
+            {isFormVisible && <AddPlantForm handleAddPlant={handleAddPlant} />}
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 m-12 place-items-center">
 
