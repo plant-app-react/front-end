@@ -1,12 +1,30 @@
+import axios from "axios"
+import { useState, useEffect } from "react"
+
+const API_URL = "http://localhost:5005"
 
 function CarePlan() {
+    const [carePlan, setCarePlan] = useState([]);
+
+    const getCarePlan = () => {
+        axios
+            .get(`${API_URL}/plants/:plantId/careplan`)
+            .then((response) => {
+                console.log(response.data)
+                setCarePlan(response.data);
+            })
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        getCarePlan();
+    }, []);
+
+
+
     return (
         <div className="my-10 w-screen text-center">
-            <h2 className="text-2xl font-semibold my-4">This is the Care Plan for: this plant</h2>
-            <p>Water: once a week</p>
-            <p>Fertilize: once every 3 months</p>
-            <p>Mist: every 2 days</p>
-            <p>...</p>
+         {/* <h1>{carePlan && carePlan.water}</h1> */}
         </div>
     )
 }
