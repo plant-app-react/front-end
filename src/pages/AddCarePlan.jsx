@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -8,7 +9,10 @@ const API_URL = import.meta.env.VITE_API_URL;
 const AddCarePlan = () => {
     const [newCarePlan, setNewCarePlan] = useState({
         water: "",
-        fertilize: ""
+        fertilize: "",
+        mist: "",
+        clean: "",
+        repot: ""
     })
     const { plantId } = useParams();
 
@@ -28,12 +32,15 @@ const AddCarePlan = () => {
                 setNewCarePlan({
                     water: "",
                     fertilize: "",
+                    mist: "",
+                    clean: "",
+                    repot: ""
                 });
 
                 console.log(res)
             })
             .catch((e) => {
-                console.log(e);
+                console.log(e, "Error creating care plan");
             });
     }
 
@@ -44,7 +51,7 @@ const AddCarePlan = () => {
     return (
         <div className="my-10 w-screen text-center">
 
-            <form onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
 
                 <label>
                     Water:
@@ -64,8 +71,36 @@ const AddCarePlan = () => {
                         onChange={handleValueChanges}
                     />
                 </label>
+                <label>
+                    Mist:
+                    <input
+                        type="text"
+                        name="mist"
+                        value={newCarePlan.mist}
+                        onChange={handleValueChanges}
+                    />
+                </label>
+                <label>
+                    Clean:
+                    <input
+                        type="text"
+                        name="clean"
+                        value={newCarePlan.clean}
+                        onChange={handleValueChanges}
+                    />
+                </label>
+                <label>
+                    Repot:
+                    <input
+                        type="text"
+                        name="repot"
+                        value={newCarePlan.repot}
+                        onChange={handleValueChanges}
+                    />
+                </label>
 
-                <button type="submit">Create Care Plan</button>
+                <button type="submit" className="text-green-800">Create Care Plan</button>
+                <Link to={`/plants/${plantId}`} className="text-green-800">Back to plant details</Link>
             </form>
         </div>
     )

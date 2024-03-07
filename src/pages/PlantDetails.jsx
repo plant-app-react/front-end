@@ -10,7 +10,7 @@ function PlantDetails() {
     const storedToken = localStorage.getItem("authToken");
 
     const { plantId } = useParams();
-  
+
     const [plant, setPlant] = useState([]);
 
     const getPlant = () => {
@@ -46,23 +46,23 @@ function PlantDetails() {
     }, []);
 
     const deleteCarePlan = () => {
-      
+
         axios
-        .delete(
-            `${API_URL}/plants/${plantId}/careplan`,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          )
-        .then((response) => {
-            console.log(response)
-            getCarePlan()
-        })
-        .catch((error) => {
-            console.log("Error deleting care plan", error)
-        })
+            .delete(
+                `${API_URL}/plants/${plantId}/careplan`,
+                { headers: { Authorization: `Bearer ${storedToken}` } }
+            )
+            .then((response) => {
+                console.log(response)
+                getCarePlan()
+            })
+            .catch((error) => {
+                console.log("Error deleting care plan", error)
+            })
     }
 
     return (
-        <div>
+        <div className="flex flex-col">
 
 
             <h1>{plant && plant.name}</h1>
@@ -70,6 +70,7 @@ function PlantDetails() {
             <Link to={`/plants/${plantId}/addcareplan`}>Add Care Plan</Link>
             <h1>{carePlan && carePlan.water}</h1>
             <button onClick={deleteCarePlan}>Delete Care Plan</button>
+            <Link to="/">Back to Home Page</Link>
         </div>
     )
 }
