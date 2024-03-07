@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AddCarePlan = () => {
+
+    console.log(API_URL, "API_URL")
     const [newCarePlan, setNewCarePlan] = useState({
         water: "",
         fertilize: "",
@@ -15,6 +17,8 @@ const AddCarePlan = () => {
         repot: ""
     })
     const { plantId } = useParams();
+    console.log(plantId)
+
 
     const handleValueChanges = (e) => {
         setNewCarePlan({
@@ -25,6 +29,7 @@ const AddCarePlan = () => {
     };
 
     const handleSubmit = (event) => {
+        console.log(plantId, "plantId")
         event.preventDefault();
         axios
             .post(`${API_URL}/plants/${plantId}/careplan`, newCarePlan)

@@ -35,20 +35,20 @@ function SignupPage() {
 
 
     return (
-        <div className=" p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto">
+        <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto">
 
 
             <form
                 onSubmit={handleSignupSubmit}
                 className="grid grid-cols-1 gap-4 overflow-y-auto mt-12 px-4"
             >
-                <h3 className="text-2xl font-semibold text-gray-700 mb-6 sticky left-0">
-                    Sign Up
+                <h3 className="text-center text-2xl font-semibold text-green-700 mb-6 sticky">
+                    Create an Account
                 </h3>
 
                 <label
                     htmlFor="email"
-                    className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold"
+                    className="text-center text-green-700 mb-2 text-l font-bold"
                 >
                     E-mail
                 </label>
@@ -64,23 +64,24 @@ function SignupPage() {
 
                 <label
                     htmlFor="password"
-                    className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold"
+                    className="text-center text-green-700 mb-2 text-l font-bold"
                 >
                     Password
                 </label>
+
                 <input
                     type="password"
                     name="password"
                     id="password"
                     value={password}
                     onChange={handlePassword}
-                    className="border rounded p-2 w-full mb-6"
+                    className="border rounded p-2 w-full"
                     autoComplete="off"
                 />
-
+                <p className="text-sm">*Min 6 characters, 1 uppercase, 1 number</p>
                 <label
                     htmlFor="name"
-                    className="text-gray-600 text-left ml-1 -mb-2 text-l font-bold"
+                    className="text-center text-green-700 mb-2 text-l font-bold"
                 >
                     Name
                 </label>
@@ -93,19 +94,20 @@ function SignupPage() {
                     className="border rounded p-2 w-full mb-6"
                     autoComplete="off"
                 />
-
-                <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 transition duration-150 ease-in-out"
-                >
-                    Create Account
-                </button>
+                <div className="flex justify-center">
+                    <button
+                        type="submit"
+                        className="bg-green-700 text-white font-bold py-2 px-4 rounded my-4 w-24"
+                    >
+                        Sign Up
+                    </button>
+                </div>
             </form>
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="text-center error-message">{errorMessage}</p>}
 
-            <p className="mt-10 mb-2">Already have an account?</p>
-            <Link to={"/login"}> Log in</Link>
+            <p className="text-center mt-10 mb-2">Already have an account?</p>
+            <Link to={"/login"} className="text-center text-green-700 font-semibold"> Log in</Link>
         </div>
     )
 }
