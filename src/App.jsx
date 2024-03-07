@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound"
 import AddCarePlan from './pages/AddCarePlan'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
+import UpdateCarePlan from './pages/UpdateCarePlan'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
         <Route path="/plants" element={<PlantList />} />
         <Route path="/plants/:plantId" element={<PlantDetails />} />
         <Route path="/plants/:plantId/addcareplan" element={<AddCarePlan />} />
+        <Route path="/plants/:plantId/updatecareplan" element={<UpdateCarePlan />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="*" element={<NotFound />} />

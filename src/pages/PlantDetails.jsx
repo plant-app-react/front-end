@@ -7,8 +7,10 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function PlantDetails() {
 
-    const { plantId } = useParams();
+    const storedToken = localStorage.getItem("authToken");
 
+    const { plantId } = useParams();
+  
     const [plant, setPlant] = useState([]);
 
     const getPlant = () => {
@@ -27,14 +29,14 @@ function PlantDetails() {
 
 
 
-    const [newCarePlan, setNewCarePlan] = useState([]);
+    const [carePlan, setCarePlan] = useState([]);
 
     const getCarePlan = () => {
         axios
             .get(`${API_URL}/plants/${plantId}/careplan`)
             .then((response) => {
                 console.log(response.data)
-                setNewCarePlan(response.data);
+                setCarePlan(response.data);
             })
             .catch((error) => console.log(error));
     };
@@ -44,13 +46,19 @@ function PlantDetails() {
     }, []);
 
     const deleteCarePlan = () => {
-        axios.delete(`${API_URL}/plants/${plantId}/careplan`)
-            .then((response) => {
-                console.log(response)
-            })
-            .catch((error) => {
-                console.log("Error deleting care plan", error)
-            })
+      
+        axios
+        .delete(
+            `${API_URL}/plants/${plantId}/careplan`,
+            { headers: { Authorization: `Bearer ${storedToken}` } }
+          )
+        .then((response) => {
+            console.log(response)
+            getCarePlan()
+        })
+        .catch((error) => {
+            console.log("Error deleting care plan", error)
+        })
     }
 
     return (
@@ -60,7 +68,7 @@ function PlantDetails() {
             <h1>{plant && plant.name}</h1>
             {/* <img src={plant.image} alt="Plant" /> */}
             <Link to={`/plants/${plantId}/addcareplan`}>Add Care Plan</Link>
-            <h1>{newCarePlan && newCarePlan.water}</h1>
+            <h1>{carePlan && carePlan.water}</h1>
             <button onClick={deleteCarePlan}>Delete Care Plan</button>
         </div>
     )
