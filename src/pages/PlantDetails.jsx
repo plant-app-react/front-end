@@ -62,16 +62,26 @@ function PlantDetails() {
     }
 
     return (
-        <div className="flex flex-col">
+        <section className="">
 
-
-            <h1>{plant && plant.name}</h1>
-            {/* <img src={plant.image} alt="Plant" /> */}
-            <Link to={`/plants/${plantId}/addcareplan`}>Add Care Plan</Link>
-            <h1>{carePlan && carePlan.water}</h1>
-            <button onClick={deleteCarePlan}>Delete Care Plan</button>
-            <Link to="/">Back to Home Page</Link>
-        </div>
+            <div className="flex flex-col items-center gap-6 mt-12">
+                <h2 className="font-semibold">{plant && plant.name}</h2>
+                <img src={plant.image} alt="Plant" />
+                <h3 className="text-decoration: underline">Care Plan:</h3>
+                <div className="flex flex-col gap-2">
+                    <p>Water: {carePlan && carePlan.water}</p>
+                    <p>Fertilize: {carePlan && carePlan.fertilize}</p>
+                    <p>Mist: {carePlan && carePlan.mist}</p>
+                    <p>Clean: {carePlan && carePlan.clean}</p>
+                    <p>Repot: {carePlan && carePlan.repot}</p>
+                </div>
+            </div>
+            <div className="flex justify-evenly my-12">
+                <Link to={`/plants/${plantId}/addcareplan`}>Add Care Plan</Link>
+                <button onClick={deleteCarePlan}>Delete Care Plan</button>
+                <Link to="/">Back to Home Page</Link>
+            </div>
+        </section>
     )
 }
 
