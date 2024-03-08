@@ -11,6 +11,8 @@ import AddCarePlan from './pages/AddCarePlan'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import UpdateCarePlan from './pages/UpdateCarePlan'
+import IsPrivate from './components/IsPrivate'
+import Logout from './components/Logout'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -21,11 +23,12 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/plants" element={<PlantList />} />
-        <Route path="/plants/:plantId" element={<PlantDetails />} />
-        <Route path="/plants/:plantId/addcareplan" element={<AddCarePlan />} />
-        <Route path="/plants/:plantId/updatecareplan" element={<UpdateCarePlan />} />
+        <Route path="/plants/:plantId" element={<IsPrivate><PlantDetails /></IsPrivate>} />
+        <Route path="/plants/:plantId/addcareplan" element={<IsPrivate><AddCarePlan /></IsPrivate>} />
+        <Route path="/plants/:plantId/updatecareplan" element={<IsPrivate><UpdateCarePlan /></IsPrivate>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/logout" element={<Logout />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
