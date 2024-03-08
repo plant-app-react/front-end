@@ -35,20 +35,20 @@ function SignupPage() {
 
 
     return (
-        <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto">
+        <div className="pb-4 mb-2 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
 
 
             <form
                 onSubmit={handleSignupSubmit}
-                className="grid grid-cols-1 gap-4 overflow-y-auto mt-12 px-4"
+                className="grid grid-cols-1 gap-4 overflow-y-auto mt-8 px-4"
             >
-                <h3 className="text-center text-2xl font-semibold text-green-700 mb-6 sticky">
-                    Create an Account
+                <h3 className="text-center text-md font-semibold text-green-700 mb-2 sticky lg:text-xl lg:font-bold">
+                    Create Account
                 </h3>
 
                 <label
                     htmlFor="email"
-                    className="text-center text-green-700 mb-2 text-l font-bold"
+                    className="text-center text-md font-semibold text-green-700 mb-2 lg:text-md lg:font-bold"
                 >
                     E-mail
                 </label>
@@ -58,13 +58,13 @@ function SignupPage() {
                     id="email"
                     value={email}
                     onChange={handleEmail}
-                    className="border rounded p-2 w-full mb-6"
+                    className="border rounded p-2 w-full mb-2"
                     autoComplete="off"
                 />
 
                 <label
                     htmlFor="password"
-                    className="text-center text-green-700 mb-2 text-l font-bold"
+                    className="text-center text-md font-semibold text-green-700 mb-2 lg:text-md lg:font-bold"
                 >
                     Password
                 </label>
@@ -75,13 +75,13 @@ function SignupPage() {
                     id="password"
                     value={password}
                     onChange={handlePassword}
-                    className="border rounded p-2 w-full"
+                    className="border rounded p-2 w-full mb-1"
                     autoComplete="off"
                 />
                 <p className="text-sm">*Min 6 characters, 1 uppercase, 1 number</p>
                 <label
                     htmlFor="name"
-                    className="text-center text-green-700 mb-2 text-l font-bold"
+                    className="text-center text-md font-semibold text-green-700 mb-2 lg:text-md lg:font-bold"
                 >
                     Name
                 </label>
@@ -91,13 +91,13 @@ function SignupPage() {
                     id="name"
                     value={name}
                     onChange={handleName}
-                    className="border rounded p-2 w-full mb-6"
+                    className="border rounded p-2 w-full mb-1"
                     autoComplete="off"
                 />
                 <div className="flex justify-center">
                     <button
                         type="submit"
-                        className="bg-green-700 text-white font-bold py-2 px-4 rounded my-4 w-24"
+                        className="bg-green-700 text-white rounded mx-2 py-1 my-1 w-24 hover:bg-green-600 lg:font-bold lg:py-2 lg:px-2  "
                     >
                         Sign Up
                     </button>
@@ -106,8 +106,8 @@ function SignupPage() {
 
             {errorMessage && <p className="text-center error-message">{errorMessage}</p>}
 
-            <p className="text-center mt-10 mb-2">Already have an account?</p>
-            <Link to={"/login"} className="text-center text-green-700 font-semibold"> Log in</Link>
+            <p className="text-center text-xs mt-4 lg:text-sm">Already have an account?</p>
+            <Link to={"/login"} className="text-center"><span className="text-green-700 font-semibold hover:text-green-500"> Log in</span></Link>
         </div>
     )
 }

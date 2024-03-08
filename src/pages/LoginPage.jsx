@@ -37,20 +37,20 @@ function LoginPage() {
     };
 
     return (
-        <div className="p-8 pb-16 mb-10 mt-10 rounded-lg shadow-md flex flex-col h-full relative w-full max-w-3xl mx-auto">
+        <div className="p-2 pb-4 mb-10 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
 
 
             <form
                 onSubmit={handleLoginSubmit}
                 className="grid grid-cols-1 gap-4 overflow-y-auto mt-12 px-4"
             >
-                <h3 className="text-center text-2xl font-semibold text-green-700 mb-6 sticky">
+                <h3 className="text-center text-md font-semibold text-green-700 mb-6 sticky lg:text-xl lg:font-bold">
                     Login
                 </h3>
 
                 <label
                     htmlFor="email"
-                    className="text-center text-green-700 mb-2 text-l font-bold"
+                    className="text-center text-md font-semibold text-green-700 mb-2 lg:text-md lg:font-bold"
                 >
                     Email
                 </label>
@@ -60,13 +60,13 @@ function LoginPage() {
                     id="email"
                     value={email}
                     onChange={handleEmail}
-                    className="border rounded p-2 w-full mb-6"
+                    className="border rounded p-2 w-full mb-4"
                     autoComplete="off"
                 />
 
                 <label
                     htmlFor="password"
-                    className="text-center text-green-700 mb-2 text-l font-bold"
+                    className="text-center text-md font-semibold text-green-700 mb-4 sticky lg:text-md lg:font-bold"
                 >
                     Password
                 </label>
@@ -83,7 +83,7 @@ function LoginPage() {
                 <div className="flex justify-center">
                     <button
                         type="submit"
-                        className="bg-green-700 text-white font-bold py-2 px-4 rounded my-4 w-24"
+                        className="bg-green-700 text-white rounded mx-2 py-1 my-4 w-24 hover:bg-green-600 lg:font-bold lg:py-2 lg:px-2  "
                     >
                         Log In
                     </button>
@@ -92,7 +92,7 @@ function LoginPage() {
 
             {errorMessage && <p className="text-center error-message">{errorMessage}</p>}
 
-            <p className="text-center mt-10 mb-2">Don't have an account yet?</p>
+            <p className="text-center text-sm mt-4 mb-2 lg:text-md">Don't have an account yet?</p>
             <Link to={"/signup"} className="text-center text-green-700"> Sign Up</Link>
         </div>
     );
