@@ -13,6 +13,7 @@ import SignupPage from './pages/SignupPage'
 import UpdateCarePlan from './pages/UpdateCarePlan'
 import IsPrivate from './components/IsPrivate'
 import Logout from './components/Logout'
+import Favorites from './pages/Favorites'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -29,6 +30,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/favorites" element={<Favorites/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
