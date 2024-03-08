@@ -42,31 +42,35 @@ const AddPlantForm = ({ handleAddPlant }) => {
 
 
     return (
-        <div className="AddPlantForm">
-
-            <form onSubmit={handleSubmit}>
-
-                <label>
+        <div>
+   
+            <form onSubmit={handleSubmit} >
+                <div className="max-w-sm mx-auto">
+                <label className="block text-sm font-medium">
                     Name:
                     <input
+                        className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs"
                         type="text"
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                 </label>
-                <label>
+                <label className="block text-sm font-medium mt-3">
                     Picture:
                     <input
+                        className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs"
                         type="url"
                         name="image"
                         value={image}
                         onChange={(e) => setImage(e.target.value)}
                     />
                 </label>
-                <label>
+
+                <label className="block text-sm font-medium mt-3">
                     Location:
                     <input
+                        className="ml-2"
                         type="radio"
                         name="location"
                         value="interior"
@@ -75,6 +79,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     />
                     <label>Interior</label>
                     <input
+                        className="ml-2"
                         type="radio"
                         name="location"
                         value="exterior"
@@ -83,27 +88,30 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     />
                     <label>Exterior</label>
                 </label>
-                <label>
+                <label className="block text-sm font-medium mt-3">
                     Direct Sunlight:
                     <input
+                        className="ml-2"
                         type="checkbox"
                         name="directSunlight"
                         checked={directSunlight}
                         onChange={(e) => setDirectSunlight(e.target.checked)}
                     />
                 </label>
-                <label>
+                <label className="block text-sm font-medium mt-3">
                     Toxicity:
                     <input
+                        className="ml-2"
                         type="checkbox"
                         name="toxicity"
                         checked={toxicity}
                         onChange={(e) => setToxicity(e.target.checked)}
                     />
                 </label>
-                <label>
+                <label className="block text-sm font-medium mt-3">
                     Difficulty:
                     <input
+                    className="ml-2"
                         type="radio"
                         name="difficulty"
                         value="Easy Care"
@@ -112,6 +120,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     />
                     <label>Easy Care</label>
                     <input
+                    className="ml-2"
                         type="radio"
                         name="difficulty"
                         value="High Maintenance"
@@ -120,7 +129,10 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     />
                     <label>High Maintenance</label>
                 </label>
-                <button type="submit">Create Plant</button>
+                </div>
+                <div className="flex justify-center mt-8">
+                <button type="submit" className="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full ">Create Plant</button>
+                </div>
             </form>
         </div>
     );
