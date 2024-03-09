@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Accordion from "../components/Accordion";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -61,12 +62,6 @@ function PlantDetails() {
             })
     }
 
-    const [isVisible, setIsVisible] = useState(false);
-
-    const toggleVisibility = () => {
-        setIsVisible(!isVisible);
-    }
-
 
     return (
         <section className="">
@@ -84,9 +79,7 @@ function PlantDetails() {
                     </ul>
                 </div>
                 <div>
-                    <button onClick={toggleVisibility} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2
-                     hover:bg-green-600 hover:text-white mt-8">Care Plan</button>
-                    {isVisible && (
+                    <Accordion>
                         <div className="flex flex-col gap-2">
                             <p>Water: {carePlan && carePlan.water}</p>
                             <p>Fertilize: {carePlan && carePlan.fertilize}</p>
@@ -94,7 +87,8 @@ function PlantDetails() {
                             <p>Clean: {carePlan && carePlan.clean}</p>
                             <p>Repot: {carePlan && carePlan.repot}</p>
                         </div>
-                    )}
+
+                    </Accordion>
                 </div>
             </div>
             <div className="flex justify-evenly my-12">
