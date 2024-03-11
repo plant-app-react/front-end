@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
+import { IoMdHeartEmpty } from "react-icons/io";
+import { IoHeart } from "react-icons/io5";
+import { useParams } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -8,7 +11,7 @@ const Favorites = () => {
 
     const [favoritePlants, setFavoritePlants] = useState([]);
     const storedToken = localStorage.getItem("authToken");
-
+    const { plantId } = useParams();
 
     // Fetch the user's favorite plants when the component mounts
     const getFavoritePlants = () => {
@@ -26,6 +29,20 @@ const Favorites = () => {
         getFavoritePlants();
     }, []);
 
+    const toggleFavorite = (plantId) => {
+        axios
+            .delete(`${API_URL}/auth/favorites/${plantId}`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
+            .then(() => {
+                getFavoritePlants()
+            })
+            .catch((error) => {
+                console.log("Error toggling favorite:", error);
+            })
+    }
+
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 m-12 place-items-center">
             {favoritePlants.map((plant) => (
@@ -40,8 +57,11 @@ const Favorites = () => {
                     <div className="px-6 pt-4 pb-2">
                         {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Easy Care</span> */}
                         <Link to={`/plants/${plant._id}`} >
-                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Mode Details</span>
+                            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">More Details</span>
                         </Link>
+                        <button onClick={() => toggleFavorite(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-300 hover:text-white">
+                                <IoHeart />
+                        </button>
                     </div>
                 </div>
 

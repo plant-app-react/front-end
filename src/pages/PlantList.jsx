@@ -135,7 +135,6 @@ function PlantList() {
                                     <IoMdHeartEmpty />
                                 )}
                                     </button>
-
                                 </div>
                             </div>
 
