@@ -27,9 +27,7 @@ function PlantList() {
             .catch((error) => console.log(error));
     };
 
-    useEffect(() => {
-        getAllPlants();
-    }, []);
+
 
     const handleAddPlant = (newPlant) => {
         setPlants([newPlant, ...plants]);
@@ -59,26 +57,48 @@ function PlantList() {
 
     const [favorites, setFavorites] = useState([])
 
-    const toggleFavorite = (plantId) => {
+    const displayFavorites = () => {
+        axios
+            .get(`${API_URL}/auth/favorites`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
+            .then((response) => {
+                console.log(response.data)
+                setFavorites(response.data);
+            })
+            .catch((error) => console.log(error));
+    };
 
+
+    const toggleFavorite = (plantId) => {
         axios
             .post(`${API_URL}/auth/favorites/${plantId}`, {}, {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then(() => {
-                if (!favorites.includes(plantId)) {
-                    setFavorites([...favorites, plantId])
-                } else {
-                    setFavorites(favorites.filter(id => id !== plantId))
-                }
+                // if (!favorites.includes(plantId)) {
+                //     setFavorites([...favorites, plantId])
+                // } else {
+                //     setFavorites(favorites.filter(id => id !== plantId))
+                // }
+                displayFavorites()
             })
             .catch((error) => {
                 console.log("Error toggling favorite:", error);
             })
     }
 
+    const isFavorite = (plantId) => {
+    if (favorites.map((fav) => { return fav._id }).includes(plantId)) {
+        return true
+    }
+}
 
-    console.log(favorites)
+    useEffect(() => {
+         getAllPlants();
+        displayFavorites();
+    }, []);
+
 
     return (
         <div>
@@ -91,10 +111,10 @@ function PlantList() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12 m-12 place-items-center">
 
-                {plants &&
+                {plants && favorites &&
                     plants.map(
                         (plant) => (
-
+                          
                             <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105" key={plant._id}>
                                 <div className="h-96 relative">
                                     <img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} />
@@ -105,16 +125,15 @@ function PlantList() {
                                 <div className="px-6 pt-4 pb-2">
                                     {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Easy Care</span> */}
                                     <Link to={`/plants/${plant._id}`} >
-                                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Mode Details</span>
+                                        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">More Details</span>
                                     </Link>
                                     <button onClick={() => deletePlant(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white"><MdDeleteOutline /></button>
                                     <button onClick={() => toggleFavorite(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-300 hover:text-white">
-                                    {favorites.includes(plant._id) ? (
+                                    {isFavorite(plant._id) ? (
                                     <IoHeart />
                                 ) : (
                                     <IoMdHeartEmpty />
                                 )}
-
                                     </button>
 
                                 </div>

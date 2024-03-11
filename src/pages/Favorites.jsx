@@ -17,7 +17,7 @@ const Favorites = () => {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then((response) => {
-                console.log(response)
+                console.log(response.data)
                 setFavoritePlants(response.data);
             })
             .catch((error) => console.log(error));
