@@ -86,15 +86,16 @@ function PlantDetails() {
                             <p>Mist: {carePlan && carePlan.mist}</p>
                             <p>Clean: {carePlan && carePlan.clean}</p>
                             <p>Repot: {carePlan && carePlan.repot}</p>
+
+                            <div className="flex justify-evenly my-12">
+                                <Link to={`/plants/${plantId}/addcareplan`} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
+                                <button onClick={deleteCarePlan} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
+                                <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link>
+                            </div>
                         </div>
 
                     </Accordion>
                 </div>
-            </div>
-            <div className="flex justify-evenly my-12">
-                <Link to={`/plants/${plantId}/addcareplan`} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
-                <button onClick={deleteCarePlan} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
-                <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link>
             </div>
         </section>
     )
