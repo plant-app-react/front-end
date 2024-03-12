@@ -17,7 +17,7 @@ function HomePage() {
                     <p className="text-md lg:text-xl my-8 text-green-600">With PlantiePie, create customized care plans<br />
                         and unlock your plant's full potential</p>
                 </div>
-                <div className="grid lg:grid-cols-3 gap-12 w-2/6 h-96">
+                <div className="grid lg:grid-cols-3 gap-12 w-2/6 h-96 mx-auto ">
                     <img src={plant1} alt="plant" className="rounded-xl" />
                     <img src={plant2} alt="plant" className="rounded-xl" />
                     <img src={plant3} alt="plant" className="rounded-xl" />

@@ -63,11 +63,11 @@ function PlantDetails() {
     }
 
 
-    const [showUpdateForm, setShowUpdateForm] = useState(false)
+    // const [showUpdateForm, setShowUpdateForm] = useState(false)
 
-    const toggleUpdateForm = () => {
-        setShowUpdateForm(!showUpdateForm);
-    }
+    // const toggleUpdateForm = () => {
+    //     setShowUpdateForm(!showUpdateForm);
+    // }
 
     return (
         <section className="">
@@ -92,8 +92,9 @@ function PlantDetails() {
                                 <p><span className="text-xl">Clean:</span> {carePlan && carePlan.clean}</p>
                                 <p><span className="text-xl">Repot: </span>{carePlan && carePlan.repot}</p>
                                 <div className="flex justify-evenly my-12">
-                                    <button onClick={toggleUpdateForm} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</button>
-                                    {showUpdateForm && <h1>This is the edit form</h1>}
+                                    {/* <button onClick={toggleUpdateForm} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</button> */}
+                                    <Link to="/careplan" className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
+                                    {/* {showUpdateForm && <h1>This is the edit form</h1>} */}
                                     <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
                                     {/* <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link> */}
                                 </div>
