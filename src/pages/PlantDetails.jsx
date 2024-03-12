@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Accordion from "../components/Accordion";
+import moment from 'moment';
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -13,6 +14,8 @@ function PlantDetails() {
     const { plantId } = useParams();
 
     const [plant, setPlant] = useState([]);
+    const [carePlan, setCarePlan] = useState([]);
+
 
     const getPlant = () => {
         axios
@@ -28,9 +31,6 @@ function PlantDetails() {
         getPlant();
     }, []);
 
-
-
-    const [carePlan, setCarePlan] = useState([]);
 
     const getCarePlan = () => {
         axios
@@ -62,6 +62,9 @@ function PlantDetails() {
             })
     }
 
+    const calcDays = (date) => {
+        return moment(date).startOf('day').fromNow();
+    }
 
     // const [showUpdateForm, setShowUpdateForm] = useState(false)
 
@@ -70,10 +73,13 @@ function PlantDetails() {
     // }
 
     return (
-        <section className="">
+        <>
 
-            <div className="flex flex-col items-center gap-6 mt-12 rounded-2xl">
-                <h2 className="text-lg font-semibold text-green-600 lg:text-2xl">{plant && plant.name}</h2>
+            <div className="flex justify-center items-center mx-auto mt-20">
+                <h2 className="text-5xl font-semibold text-green-600">* {plant && plant.name} *</h2>
+            </div>
+            <div className="flex xl:flex-row items-center justify-center gap-12 mt-12 rounded-2xl flex-col">
+
                 <div className="flex gap-16 shadow-lg p-12">
                     <img src={plant.image} alt="Plant" className="rounded-xl h-96" />
 
@@ -83,28 +89,30 @@ function PlantDetails() {
                         <li className="font-bold text-xl">Care Level: <span className="font-normal">{plant.difficulty}</span></li>
                         <li className="font-bold text-xl">Toxicity: <span className="font-normal">{plant.toxicity}</span></li>
                     </ul>
+                </div>
+                <div className="flex gap-16 shadow-lg p-12">
                     <div className="p-12">
                         <Accordion>
                             <div className="flex flex-col gap-4 text-green-600 mb-2">
-                                <p><span className="text-xl">Water:</span> {carePlan && carePlan.water}</p>
-                                <p><span className="text-xl">Fertilize:</span> {carePlan && carePlan.fertilize}</p>
-                                <p><span className="text-xl">Mist:</span> {carePlan && carePlan.mist}</p>
-                                <p><span className="text-xl">Clean:</span> {carePlan && carePlan.clean}</p>
-                                <p><span className="text-xl">Repot: </span>{carePlan && carePlan.repot}</p>
+                                {carePlan && (
+                                    <>
+                                        <p><span className="text-xl">Watered:</span> {calcDays(carePlan.water)}</p>
+                                        <p><span className="text-xl">Fertilized:</span> {calcDays(carePlan.fertilize)}</p>
+                                        <p><span className="text-xl">Moistened:</span> {calcDays(carePlan.mist)}</p>
+                                        <p><span className="text-xl">Cleaned::</span> {calcDays(carePlan.clean)}</p>
+                                        <p><span className="text-xl">Repotted: </span>{calcDays(carePlan.repot)}</p>
+                                    </>
+                                )}
                                 <div className="flex justify-evenly my-12">
-                                    {/* <button onClick={toggleUpdateForm} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</button> */}
-                                    <Link to="/careplan" className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
-                                    {/* {showUpdateForm && <h1>This is the edit form</h1>} */}
+                                    <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
                                     <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
-                                    {/* <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link> */}
                                 </div>
                             </div>
-
                         </Accordion>
                     </div>
                 </div>
             </div>
-        </section>
+        </>
     )
 }
 

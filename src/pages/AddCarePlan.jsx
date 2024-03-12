@@ -2,11 +2,14 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AddCarePlan = () => {
+    
+    const navigate = useNavigate()
+
 
     console.log(API_URL, "API_URL")
     const [newCarePlan, setNewCarePlan] = useState({
@@ -41,18 +44,13 @@ const AddCarePlan = () => {
                     clean: "",
                     repot: ""
                 });
-
+                navigate(`/plants/${plantId}`)
                 console.log(res)
             })
             .catch((e) => {
                 console.log(e, "Error creating care plan");
             });
     }
-
-
-    useEffect(() => {
-
-    }, [carePlan])
 
 
     return (
@@ -64,7 +62,7 @@ const AddCarePlan = () => {
                     <label>
                         Water:
                         <input
-                            type="text"
+                            type="date"
                             name="water"
                             value={newCarePlan.water}
                             onChange={handleValueChanges}
@@ -74,7 +72,7 @@ const AddCarePlan = () => {
                     <label>
                         Fertilize:
                         <input
-                            type="text"
+                            type="date"
                             name="fertilize"
                             value={newCarePlan.fertilize}
                             onChange={handleValueChanges}
@@ -84,7 +82,7 @@ const AddCarePlan = () => {
                     <label>
                         Mist:
                         <input
-                            type="text"
+                            type="date"
                             name="mist"
                             value={newCarePlan.mist}
                             onChange={handleValueChanges}
@@ -94,7 +92,7 @@ const AddCarePlan = () => {
                     <label>
                         Clean:
                         <input
-                            type="text"
+                            type="date"
                             name="clean"
                             value={newCarePlan.clean}
                             onChange={handleValueChanges}
@@ -104,18 +102,20 @@ const AddCarePlan = () => {
                     <label>
                         Repot:
                         <input
-                            type="text"
+                            type="date"
                             name="repot"
                             value={newCarePlan.repot}
                             onChange={handleValueChanges}
                             className="border-solid border-gray-300 border-2 mx-2 w-36"
                         />
                     </label>
-                    {/* 
-                    <button type="submit" className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Create Plan</button> */}
+                    
+                    <button type="submit" className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Create Plan</button>
+                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Back to plant details</button></Link>
                 </form>
+    
             </div>
-            {/* <Link to={`/plants/${plantId}`} className="bg-green-700  text-white text-sm">Back to plant details</Link> */}
+            
         </>
     )
 }
