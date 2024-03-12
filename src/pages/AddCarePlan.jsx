@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const API_URL = import.meta.env.VITE_API_URL;
 
 const AddCarePlan = () => {
-    
+
     const navigate = useNavigate()
 
 
@@ -109,13 +109,13 @@ const AddCarePlan = () => {
                             className="border-solid border-gray-300 border-2 mx-2 w-36"
                         />
                     </label>
-                    
-                    <button type="submit" className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Create Plan</button>
-                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Back to plant details</button></Link>
+
+                    <button type="submit" className="bg-green-700 text-white text-md rounded-full w-36 self-center ">Create Plan</button>
+                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-36  self-center">Back</button></Link>
                 </form>
-    
+
             </div>
-            
+
         </>
     )
 }

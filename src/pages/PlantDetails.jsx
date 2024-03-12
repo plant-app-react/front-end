@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Accordion from "../components/Accordion";
 import moment from 'moment';
+import { MdDeleteOutline } from "react-icons/md";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -76,7 +77,7 @@ function PlantDetails() {
         <>
 
             <div className="flex justify-center items-center mx-auto mt-20">
-                <h2 className="text-5xl font-semibold text-green-600">* {plant && plant.name} *</h2>
+                <h2 className="text-5xl font-semibold text-green-600">{plant && plant.name}</h2>
             </div>
             <div className="flex xl:flex-row items-center justify-center gap-12 mt-12 rounded-2xl flex-col">
 
@@ -105,13 +106,15 @@ function PlantDetails() {
                                 )}
                                 <div className="flex justify-evenly my-12">
                                     <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
-                                    <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
+                                    <Link to={`/plants/${plant._id}/updatecareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Edit</Link>
+                                    <button onClick={deleteCarePlan} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-28"><MdDeleteOutline /></button>
+                                    {/* <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button> */}
                                 </div>
                             </div>
                         </Accordion>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         </>
     )
 }

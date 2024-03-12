@@ -17,49 +17,49 @@ const UpdateCarePlan = () => {
 
     useEffect(() => {
         axios.get(`${API_URL}/plants/${plantId}/careplan`)
-        .then((res) => {
-            setWater(res.data.water)
-            setFertilize(res.data.fertilize)
-        })
-        .catch((e) => {
-            console.log(e)
-        })
+            .then((res) => {
+                setWater(res.data.water)
+                setFertilize(res.data.fertilize)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
     }, [plantId])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newCarePlan = { 
-            water: water, 
+        const newCarePlan = {
+            water: water,
             fertilize: fertilize
         };
-    
+
         axios
-          .put(
-            `${API_URL}/plants/${plantId}/careplan`,
-            newCarePlan,
-            { headers: { Authorization: `Bearer ${storedToken}` } }
-          )
-          .then((response) => {
-            // setWater()
-            // setFertilize()
-            console.log(response)
-            navigate(`/plants/${plantId}`)
-          })
-          .catch((e) => {
-            console.log(e)
-        })
-      };
+            .put(
+                `${API_URL}/plants/${plantId}/careplan`,
+                newCarePlan,
+                { headers: { Authorization: `Bearer ${storedToken}` } }
+            )
+            .then((response) => {
+                // setWater()
+                // setFertilize()
+                console.log(response)
+                navigate(`/plants/${plantId}`)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    };
 
 
     return (
-         <div className="my-10 w-screen text-center">
+        <div className="mt-36 text-center flex justify-center">
 
-            <form onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-4 w-96 p-12 rounded-xl shadow-lg text-xl text-green-700 items-center" onSubmit={handleSubmit}>
 
                 <label>
                     Water:
                     <input
-                        type="text"
+                        type="date"
                         name="water"
                         value={water}
                         placeholder={water}
@@ -69,7 +69,37 @@ const UpdateCarePlan = () => {
                 <label>
                     Fertilize:
                     <input
-                        type="text"
+                        type="date"
+                        name="fertilize"
+                        value={fertilize}
+                        placeholder={fertilize}
+                        onChange={(e) => setFertilize(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Mist:
+                    <input
+                        type="date"
+                        name="fertilize"
+                        value={fertilize}
+                        placeholder={fertilize}
+                        onChange={(e) => setFertilize(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Clean:
+                    <input
+                        type="date"
+                        name="fertilize"
+                        value={fertilize}
+                        placeholder={fertilize}
+                        onChange={(e) => setFertilize(e.target.value)}
+                    />
+                </label>
+                <label>
+                    Repot:
+                    <input
+                        type="date"
                         name="fertilize"
                         value={fertilize}
                         placeholder={fertilize}
@@ -77,10 +107,14 @@ const UpdateCarePlan = () => {
                     />
                 </label>
 
-                <button type="submit">Update Care Plan</button>
+
+
+
+
+                <button type="submit" className="bg-green-700 text-white rounded-full w-24 p-1">Update</button>
             </form>
         </div>
     );
 }
- 
+
 export default UpdateCarePlan;
