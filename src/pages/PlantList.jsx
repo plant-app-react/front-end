@@ -89,13 +89,13 @@ function PlantList() {
     }
 
     const isFavorite = (plantId) => {
-    if (favorites.map((fav) => { return fav._id }).includes(plantId)) {
-        return true
+        if (favorites.map((fav) => { return fav._id }).includes(plantId)) {
+            return true
+        }
     }
-}
 
     useEffect(() => {
-         getAllPlants();
+        getAllPlants();
         displayFavorites();
     }, []);
 
@@ -103,8 +103,8 @@ function PlantList() {
     return (
         <div>
             <div className="flex justify-center my-12">
-                <button onClick={toggleFormVisibility} className="bg-green-700 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-full">
-                    Add Plant! 🌱
+                <button onClick={toggleFormVisibility} className="bg-green-700 hover:bg-green-600 text-white text-md p-4 lg:text-lg lg:font-bold lg:py-4 lg:px-8 rounded-full">
+                    Add Plant
                 </button>
             </div>
             {isFormVisible && <AddPlantForm handleAddPlant={handleAddPlant} />}
@@ -114,7 +114,7 @@ function PlantList() {
                 {plants && favorites &&
                     plants.map(
                         (plant) => (
-                          
+
                             <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105" key={plant._id}>
                                 <div className="h-96 relative">
                                     <img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} />
@@ -129,11 +129,11 @@ function PlantList() {
                                     </Link>
                                     <button onClick={() => deletePlant(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white"><MdDeleteOutline /></button>
                                     <button onClick={() => toggleFavorite(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-300 hover:text-white">
-                                    {isFavorite(plant._id) ? (
-                                    <IoHeart />
-                                ) : (
-                                    <IoMdHeartEmpty />
-                                )}
+                                        {isFavorite(plant._id) ? (
+                                            <IoHeart />
+                                        ) : (
+                                            <IoMdHeartEmpty />
+                                        )}
                                     </button>
                                 </div>
                             </div>
