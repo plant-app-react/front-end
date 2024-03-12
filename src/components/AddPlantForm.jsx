@@ -14,21 +14,16 @@ const AddPlantForm = ({ handleAddPlant }) => {
     const [toxicity, setToxicity] = useState(false);
     const [difficulty, setDifficulty] = useState("")
 
-    // ******** this method handles the file upload ********
+
     const handleFileUpload = (e) => {
-        // console.log("The file to be uploaded is: ", e.target.files[0]);
 
         const uploadData = new FormData();
-
-        // imageUrl => this name has to be the same as in the model since we pass
-        // req.body to .create() method when creating a new movie in '/api/movies' POST route
         uploadData.append("image", e.target.files[0]);
 
 
         uploadImage(uploadData)
             .then(response => {
                 console.log("response is: ", response);
-                // response carries "fileUrl" which we can use to update the state
                 setImage(response.fileUrl);
                 console.log(response.fileUrl)
             })
@@ -66,7 +61,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
     return (
         <div>
 
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className="text-3xl">
                 <div className="max-w-sm mx-auto">
                     <label className="block text-sm font-medium">
                         Name:

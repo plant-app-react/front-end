@@ -50,64 +50,73 @@ const AddCarePlan = () => {
     }
 
 
+    useEffect(() => {
 
+    }, [carePlan])
 
 
     return (
-        <div className="my-10 w-screen text-center">
+        <>
+            <div className="mt-36 text-center flex justify-center">
 
-            <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-4 w-96 p-12 rounded-xl shadow-lg text-xl text-green-700" onSubmit={handleSubmit}>
 
-                <label>
-                    Water:
-                    <input
-                        type="text"
-                        name="water"
-                        value={newCarePlan.water}
-                        onChange={handleValueChanges}
-                    />
-                </label>
-                <label>
-                    Fertilize:
-                    <input
-                        type="text"
-                        name="fertilize"
-                        value={newCarePlan.fertilize}
-                        onChange={handleValueChanges}
-                    />
-                </label>
-                <label>
-                    Mist:
-                    <input
-                        type="text"
-                        name="mist"
-                        value={newCarePlan.mist}
-                        onChange={handleValueChanges}
-                    />
-                </label>
-                <label>
-                    Clean:
-                    <input
-                        type="text"
-                        name="clean"
-                        value={newCarePlan.clean}
-                        onChange={handleValueChanges}
-                    />
-                </label>
-                <label>
-                    Repot:
-                    <input
-                        type="text"
-                        name="repot"
-                        value={newCarePlan.repot}
-                        onChange={handleValueChanges}
-                    />
-                </label>
-
-                <button type="submit" className="text-green-800">Create Care Plan</button>
-                <Link to={`/plants/${plantId}`} className="text-green-800">Back to plant details</Link>
-            </form>
-        </div>
+                    <label>
+                        Water:
+                        <input
+                            type="text"
+                            name="water"
+                            value={newCarePlan.water}
+                            onChange={handleValueChanges}
+                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                        />
+                    </label>
+                    <label>
+                        Fertilize:
+                        <input
+                            type="text"
+                            name="fertilize"
+                            value={newCarePlan.fertilize}
+                            onChange={handleValueChanges}
+                            className="border-solid border-gray-300 border-2 mx-2 w-32"
+                        />
+                    </label>
+                    <label>
+                        Mist:
+                        <input
+                            type="text"
+                            name="mist"
+                            value={newCarePlan.mist}
+                            onChange={handleValueChanges}
+                            className="border-solid border-gray-300 border-2 mx-2 ml-6 w-36"
+                        />
+                    </label>
+                    <label>
+                        Clean:
+                        <input
+                            type="text"
+                            name="clean"
+                            value={newCarePlan.clean}
+                            onChange={handleValueChanges}
+                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                        />
+                    </label>
+                    <label>
+                        Repot:
+                        <input
+                            type="text"
+                            name="repot"
+                            value={newCarePlan.repot}
+                            onChange={handleValueChanges}
+                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                        />
+                    </label>
+                    {/* 
+                    <button type="submit" className="bg-green-700 text-white text-md rounded-lg w-36 mt-4 self-center hover:text-rose-300">Create Plan</button> */}
+                </form>
+            </div>
+            {/* <Link to={`/plants/${plantId}`} className="bg-green-700  text-white text-sm">Back to plant details</Link> */}
+        </>
     )
 }
 

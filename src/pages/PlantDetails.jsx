@@ -63,38 +63,44 @@ function PlantDetails() {
     }
 
 
+    const [showUpdateForm, setShowUpdateForm] = useState(false)
+
+    const toggleUpdateForm = () => {
+        setShowUpdateForm(!showUpdateForm);
+    }
+
     return (
         <section className="">
 
-            <div className="flex flex-col items-center gap-6 mt-12">
+            <div className="flex flex-col items-center gap-6 mt-12 rounded-2xl">
                 <h2 className="text-lg font-semibold text-green-600 lg:text-2xl">{plant && plant.name}</h2>
-                <div className="flex gap-16 mt-8">
-                    <img src={plant.image} alt="Plant" className="rounded-lg h-96" />
+                <div className="flex gap-16 shadow-lg p-12">
+                    <img src={plant.image} alt="Plant" className="rounded-xl h-96" />
 
                     <ul className="flex flex-col gap-8 text-left text-green-600 mt-24">
-                        <li className="font-bold text-xl">Location: <span className="font-normal">{plant.location}</span></li>
+                        <li className="font-bold text-xl">Location: <span className="font-normal mx-4">{plant.location}</span></li>
                         <li className="font-bold text-xl">Sunlight: <span className="font-normal">{plant.sunlight}</span></li>
                         <li className="font-bold text-xl">Care Level: <span className="font-normal">{plant.difficulty}</span></li>
                         <li className="font-bold text-xl">Toxicity: <span className="font-normal">{plant.toxicity}</span></li>
                     </ul>
-                </div>
-                <div>
-                    <Accordion>
-                        <div className="flex flex-col gap-2">
-                            <p>Water: {carePlan && carePlan.water}</p>
-                            <p>Fertilize: {carePlan && carePlan.fertilize}</p>
-                            <p>Mist: {carePlan && carePlan.mist}</p>
-                            <p>Clean: {carePlan && carePlan.clean}</p>
-                            <p>Repot: {carePlan && carePlan.repot}</p>
-
-                            <div className="flex justify-evenly my-12">
-                                <Link to={`/plants/${plantId}/addcareplan`} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
-                                <button onClick={deleteCarePlan} className="bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
-                                <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link>
+                    <div className="p-12">
+                        <Accordion>
+                            <div className="flex flex-col gap-4 text-green-600 mb-2">
+                                <p><span className="text-xl">Water:</span> {carePlan && carePlan.water}</p>
+                                <p><span className="text-xl">Fertilize:</span> {carePlan && carePlan.fertilize}</p>
+                                <p><span className="text-xl">Mist:</span> {carePlan && carePlan.mist}</p>
+                                <p><span className="text-xl">Clean:</span> {carePlan && carePlan.clean}</p>
+                                <p><span className="text-xl">Repot: </span>{carePlan && carePlan.repot}</p>
+                                <div className="flex justify-evenly my-12">
+                                    <button onClick={toggleUpdateForm} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</button>
+                                    {showUpdateForm && <h1>This is the edit form</h1>}
+                                    <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button>
+                                    {/* <Link to="/plants" className=" bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">Back to All Plants</Link> */}
+                                </div>
                             </div>
-                        </div>
 
-                    </Accordion>
+                        </Accordion>
+                    </div>
                 </div>
             </div>
         </section>

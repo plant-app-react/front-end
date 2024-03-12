@@ -5,8 +5,8 @@ function Accordion({ children }) {
 
     return (
         <div className="py-2">
-            <button onClick={() => setAccordionOpen(!accordionOpen)} className="flex justify-between w-full rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 mt-8">
-                <span className="text-xl text-green-700">
+            <button onClick={() => setAccordionOpen(!accordionOpen)} className="flex justify-between w-full rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mt-8">
+                <span className="text-xl text-green-600">
                     See Care Plan
                 </span>
                 <svg
