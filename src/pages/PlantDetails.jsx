@@ -77,11 +77,11 @@ function PlantDetails() {
         <>
 
             <div className="flex justify-center items-center mx-auto mt-20">
-                <h2 className="text-5xl font-semibold text-green-600">{plant && plant.name}</h2>
+                <h2 className="text-2xl lg:text-5xl font-semibold text-green-600">{plant && plant.name}</h2>
             </div>
-            <div className="flex xl:flex-row items-center justify-center gap-12 mt-12 rounded-2xl flex-col">
+            <div className="flex xl:flex-row items-center justify-center gap-12 mt-12 flex-col">
 
-                <div className="flex gap-16 shadow-lg p-12">
+                <div className="flex gap-16 shadow-md p-12 rounded-xl">
                     <img src={plant.image} alt="Plant" className="rounded-xl h-96" />
 
                     <ul className="flex flex-col gap-8 text-left text-green-600 mt-24">
@@ -91,20 +91,20 @@ function PlantDetails() {
                         <li className="font-bold text-xl">Toxicity: <span className="font-normal">{plant.toxicity}</span></li>
                     </ul>
                 </div>
-                <div className="flex gap-16 shadow-lg p-12">
-                    <div className="p-12">
+                <div className="p-12 ">
+                    <div className="flex gap-16 shadow-md p-12 rounded-xl">
                         <Accordion>
                             <div className="flex flex-col gap-4 text-green-600 mb-2">
                                 {carePlan && (
-                                    <>
-                                        <p><span className="text-xl">Watered:</span> {calcDays(carePlan.water)}</p>
-                                        <p><span className="text-xl">Fertilized:</span> {calcDays(carePlan.fertilize)}</p>
-                                        <p><span className="text-xl">Moistened:</span> {calcDays(carePlan.mist)}</p>
-                                        <p><span className="text-xl">Cleaned::</span> {calcDays(carePlan.clean)}</p>
-                                        <p><span className="text-xl">Repotted: </span>{calcDays(carePlan.repot)}</p>
-                                    </>
+                                    <div className="">
+                                        <p className="pt-3 pb-2"><span className="text-xl">Watered:</span> {calcDays(carePlan.water)}</p>
+                                        <p className="py-2"><span className="text-xl">Fertilized:</span> {calcDays(carePlan.fertilize)}</p>
+                                        <p className="py-2"><span className="text-xl">Moistened:</span> {calcDays(carePlan.mist)}</p>
+                                        <p className="py-2"><span className="text-xl">Cleaned::</span> {calcDays(carePlan.clean)}</p>
+                                        <p className="py-2"><span className="text-xl">Repotted: </span>{calcDays(carePlan.repot)}</p>
+                                    </div>
                                 )}
-                                <div className="flex justify-evenly my-12">
+                                <div className="flex justify-evenly mt-2">
                                     <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
                                     <Link to={`/plants/${plant._id}/updatecareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Edit</Link>
                                     <button onClick={deleteCarePlan} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-28"><MdDeleteOutline /></button>

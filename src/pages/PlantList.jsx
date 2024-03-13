@@ -117,10 +117,10 @@ function PlantList() {
 
                             <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105" key={plant._id}>
                                 <div className="h-96 relative">
-                                    <img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} />
+                                    <Link to={`/plants/${plant._id}`} ><img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} /></Link>
                                 </div>
                                 <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">{plant.name}</div>
+                                    <Link to={`/plants/${plant._id}`} ><div className="font-bold text-xl mb-2 text-center">{plant.name}</div></Link>
                                 </div>
                                 <div className="px-6 pt-4 pb-2">
                                     {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Easy Care</span> */}
