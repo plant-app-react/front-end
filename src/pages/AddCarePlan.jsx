@@ -34,7 +34,7 @@ const AddCarePlan = () => {
         event.preventDefault();
 
         axios
-            .post(`${API_URL}/plants/${plantId}/careplan`, newCarePlan, {headers: { Authorization: `Bearer ${storedToken}` }})
+            .post(`${API_URL}/plants/${plantId}/careplan`, newCarePlan, { headers: { Authorization: `Bearer ${storedToken}` } })
             .then((res) => {
                 setNewCarePlan({
                     water: "",
@@ -54,7 +54,7 @@ const AddCarePlan = () => {
 
     return (
         <>
-            <div className="mt-36 text-center flex justify-center">
+            <div className="flex flex-col mt-24 text-center justify-center items-center">
 
                 <form className="flex flex-col gap-4 w-96 p-12 rounded-xl shadow-lg text-xl text-green-700" onSubmit={handleSubmit}>
 
@@ -65,7 +65,7 @@ const AddCarePlan = () => {
                             name="water"
                             value={newCarePlan.water}
                             onChange={handleValueChanges}
-                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                            className="w-full border-solid border-gray-300 border-2 m-2 "
                         />
                     </label>
                     <label>
@@ -75,7 +75,7 @@ const AddCarePlan = () => {
                             name="fertilize"
                             value={newCarePlan.fertilize}
                             onChange={handleValueChanges}
-                            className="border-solid border-gray-300 border-2 mx-2 w-32"
+                            className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
                     <label>
@@ -85,7 +85,7 @@ const AddCarePlan = () => {
                             name="mist"
                             value={newCarePlan.mist}
                             onChange={handleValueChanges}
-                            className="border-solid border-gray-300 border-2 mx-2 ml-6 w-36"
+                            className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
                     <label>
@@ -95,7 +95,7 @@ const AddCarePlan = () => {
                             name="clean"
                             value={newCarePlan.clean}
                             onChange={handleValueChanges}
-                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                            className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
                     <label>
@@ -105,12 +105,12 @@ const AddCarePlan = () => {
                             name="repot"
                             value={newCarePlan.repot}
                             onChange={handleValueChanges}
-                            className="border-solid border-gray-300 border-2 mx-2 w-36"
+                            className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
 
-                    <button type="submit" className="bg-green-700 text-white text-md rounded-full w-36 self-center ">Create Plan</button>
-                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-36  self-center">Back</button></Link>
+                    <button type="submit" className="bg-green-700 text-white text-md rounded-full w-36 py-1 self-center hover:bg-green-600">Create Plan</button>
+                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-24  self-center hover:bg-green-600">Back</button></Link>
                 </form>
 
             </div>
