@@ -2,6 +2,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -123,6 +124,7 @@ const UpdateCarePlan = () => {
 
 
                 <button type="submit" className="bg-green-700 text-white rounded-full w-24 p-1">Update</button>
+                <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-24  self-center hover:bg-green-600">Back</button></Link>
             </form>
         </div>
     );
