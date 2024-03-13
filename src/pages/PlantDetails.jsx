@@ -35,7 +35,9 @@ function PlantDetails() {
 
     const getCarePlan = () => {
         axios
-            .get(`${API_URL}/plants/${plantId}/careplan`)
+            .get(`${API_URL}/plants/${plantId}/careplan`, {
+                headers: { Authorization: `Bearer ${storedToken}` }
+            })
             .then((response) => {
                 console.log(response.data)
                 setCarePlan(response.data);
@@ -66,12 +68,6 @@ function PlantDetails() {
     const calcDays = (date) => {
         return moment(date).startOf('day').fromNow();
     }
-
-    // const [showUpdateForm, setShowUpdateForm] = useState(false)
-
-    // const toggleUpdateForm = () => {
-    //     setShowUpdateForm(!showUpdateForm);
-    // }
 
     return (
         <>

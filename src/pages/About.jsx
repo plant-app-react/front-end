@@ -20,8 +20,8 @@ function About() {
                 <div>
                     <h4 className="text-3xl text-green-700 font-semibold">Amparo Cabezuelo</h4>
                     <div className="flex gap-8 mt-8 justify-center text-4xl">
-                        <FaLinkedinIn className=" text-blue-700" />
-                        <BiLogoGithub />
+                    <a href="https://www.linkedin.com/in/amparo-cabezuelo-sep%C3%BAlveda-50b2272ab/" target="blank"><FaLinkedinIn className=" text-blue-700" /></a>
+                    <a href="https://github.com/amcasep/" target="blank"><BiLogoGithub /></a>
                     </div>
                 </div>
             </div>

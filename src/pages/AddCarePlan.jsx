@@ -9,7 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 const AddCarePlan = () => {
 
     const navigate = useNavigate()
-
+    const storedToken = localStorage.getItem("authToken");
 
     console.log(API_URL, "API_URL")
     const [newCarePlan, setNewCarePlan] = useState({
@@ -20,8 +20,6 @@ const AddCarePlan = () => {
         repot: ""
     })
     const { plantId } = useParams();
-    console.log(plantId)
-
 
     const handleValueChanges = (e) => {
         setNewCarePlan({
@@ -32,10 +30,11 @@ const AddCarePlan = () => {
     };
 
     const handleSubmit = (event) => {
-        console.log(plantId, "plantId")
+
         event.preventDefault();
+
         axios
-            .post(`${API_URL}/plants/${plantId}/careplan`, newCarePlan)
+            .post(`${API_URL}/plants/${plantId}/careplan`, newCarePlan, {headers: { Authorization: `Bearer ${storedToken}` }})
             .then((res) => {
                 setNewCarePlan({
                     water: "",

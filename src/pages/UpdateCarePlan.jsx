@@ -19,7 +19,9 @@ const UpdateCarePlan = () => {
     const [repot, setRepot] = useState("")
 
     useEffect(() => {
-        axios.get(`${API_URL}/plants/${plantId}/careplan`)
+        axios.get(`${API_URL}/plants/${plantId}/careplan`, {
+            headers: { Authorization: `Bearer ${storedToken}` }
+        })
             .then((res) => {
                 setWater(res.data.water)
                 setFertilize(res.data.fertilize)

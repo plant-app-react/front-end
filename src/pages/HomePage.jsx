@@ -4,11 +4,24 @@ import plant3 from "../assets/plant3.jpg"
 import plant4 from "../assets/plant4.jpg"
 import plant5 from "../assets/plant5.jpg"
 import plant6 from "../assets/plant6.jpg"
+import { useState, useEffect } from "react"
 
 function HomePage() {
+
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsLoading(false);
+        }, 750); 
+
+        return () => clearTimeout(timeout);
+    }, []); 
+
     return (
         <>
-
+  {isLoading && <div className="loader"></div>}
+      {!isLoading && (
             <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center font-bold lg:mt-48 gap-12 pb-16 lg:h-96">
                 <div className="text-center lg:mr-12">
                     <h1 className="text-4xl mt-6 lg:text-7xl lg:mt-24 text-green-700">Plant Care</h1>
@@ -32,6 +45,7 @@ function HomePage() {
 
                 </div>
             </div >
+               )}
             <div className="h-64 w-full lg:hidden"></div>
         </>
     )
