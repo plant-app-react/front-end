@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 function Footer() {
     return (
-        <div className="fixed bottom-0 w-screen bg-green-700 mt-16 text-center">
-            <Link to="/about" className="text-white">About PlantiePie</Link>
+        <div className="fixed bottom-0 w-screen bg-green-600 mt-16 text-center">
+            <Link to="/about" className="text-stone-50">About PlantiePie</Link>
 
         </div>
     )

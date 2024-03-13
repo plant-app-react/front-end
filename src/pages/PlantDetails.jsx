@@ -79,12 +79,12 @@ function PlantDetails() {
             <div className="flex justify-center items-center mx-auto mt-20">
                 <h2 className="text-2xl lg:text-5xl font-semibold text-green-600">{plant && plant.name}</h2>
             </div>
-            <div className="flex xl:flex-row items-center justify-center gap-12 mt-12 flex-col">
+            <div className="flex flex-col xl:flex-row items-center justify-center gap-12">
 
-                <div className="flex gap-16 shadow-md p-12 rounded-xl">
+                <div className="flex flex-col gap-16 shadow-md p-12 rounded-xl lg:flex-row">
                     <img src={plant.image} alt="Plant" className="rounded-xl h-96" />
 
-                    <ul className="flex flex-col gap-8 text-left text-green-600 mt-24">
+                    <ul className="flex flex-col gap-8 text-left text-green-600 mt-16">
                         <li className="font-bold text-xl">Location: <span className="font-normal mx-4">{plant.location}</span></li>
                         <li className="font-bold text-xl">Sunlight: <span className="font-normal">{plant.sunlight}</span></li>
                         <li className="font-bold text-xl">Care Level: <span className="font-normal">{plant.difficulty}</span></li>
@@ -92,16 +92,16 @@ function PlantDetails() {
                     </ul>
                 </div>
                 <div className="p-12 ">
-                    <div className="flex gap-16 shadow-md p-12 rounded-xl">
+                    <div className="flex gap-16 shadow-md px-12 rounded-xl">
                         <Accordion>
                             <div className="flex flex-col gap-4 text-green-600 mb-2">
                                 {carePlan && (
                                     <div className="">
-                                        <p className="pt-3 pb-2"><span className="text-xl">Watered:</span> {calcDays(carePlan.water)}</p>
-                                        <p className="py-2"><span className="text-xl">Fertilized:</span> {calcDays(carePlan.fertilize)}</p>
-                                        <p className="py-2"><span className="text-xl">Moistened:</span> {calcDays(carePlan.mist)}</p>
-                                        <p className="py-2"><span className="text-xl">Cleaned::</span> {calcDays(carePlan.clean)}</p>
-                                        <p className="py-2"><span className="text-xl">Repotted: </span>{calcDays(carePlan.repot)}</p>
+                                        <p className="pt-5 pb-2 text-center"><span className="text-xl mr-2">Watered:</span> {calcDays(carePlan.water)}</p>
+                                        <p className="py-2 text-center"><span className="text-xl mr-2">Fertilized:</span> {calcDays(carePlan.fertilize)}</p>
+                                        <p className="py-2 text-center"><span className="text-xl mr-2">Moistened:</span> {calcDays(carePlan.mist)}</p>
+                                        <p className="py-2 text-center"><span className="text-xl mr-2">Cleaned:</span> {calcDays(carePlan.clean)}</p>
+                                        <p className="py-2 text-center"><span className="text-xl mr-2">Repotted: </span>{calcDays(carePlan.repot)}</p>
                                     </div>
                                 )}
                                 <div className="flex justify-evenly mt-2">
@@ -115,6 +115,7 @@ function PlantDetails() {
                     </div>
                 </div >
             </div >
+            <div className="mx-auto text-center mt-4 mb-8 p-1 w-16 bg-green-700 text-stone-50 rounded-full hover:bg-green-600 cursor-pointer lg:mt-16 "><Link to="/plants" >Back</Link></div>
         </>
     )
 }

@@ -12,11 +12,11 @@ function HomePage() {
             <div className="flex flex-col lg:flex-row lg:justify-center lg:items-center font-bold lg:mt-48 gap-12 pb-16 lg:h-96">
                 <div className="text-center lg:mr-12">
                     <h1 className="text-4xl mt-6 lg:text-7xl lg:mt-24 text-green-700">Plant Care</h1>
-                    <h2 className="text-4xl my-4  text-green-700 lg:text-6xl">Made Simpler</h2>
+                    <h2 className="text-4xl my-4  text-green-600 lg:text-6xl">Made Simpler</h2>
                     <h4 className="text-2xl my-8  text-green-600">We've got you covered</h4>
                     <p className="text-md lg:text-xl lg:my-8 text-green-600">With PlantiePie, create customized care plans<br />
                         and unlock your plant's full potential</p>
-                    <p className="text-md lg:text-xl lg:my-8 text-green-600">Track your green friends growth, know precisely <br />when to water, fertilize and more.<br />
+                    <p className="text-md lg:text-xl lg:my-8 text-green-700">Track your green friends growth, know precisely <br />when to water, fertilize and more.<br />
 
                         Let PlantiePie take the worry out of plant care, so you <br />
                         can enjoy watching your plants thrive
