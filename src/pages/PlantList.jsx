@@ -103,7 +103,7 @@ function PlantList() {
     return (
         <div>
             <div className="flex justify-center my-12">
-                <button onClick={toggleFormVisibility} className="bg-green-700 hover:bg-green-600 text-white text-md p-4 lg:text-lg lg:font-bold lg:py-4 lg:px-8 rounded-full">
+                <button onClick={toggleFormVisibility} className="bg-green-700 hover:bg-green-600 text-white text-md p-2 lg:text-lg font-bold lg:py-2 lg:px-4 rounded-full">
                     Add Plant
                 </button>
             </div>
@@ -120,7 +120,7 @@ function PlantList() {
                                     <Link to={`/plants/${plant._id}`} ><img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} /></Link>
                                 </div>
                                 <div className="px-6 py-4">
-                                    <Link to={`/plants/${plant._id}`} ><div className="font-bold text-xl mb-2 text-center">{plant.name}</div></Link>
+                                    <Link to={`/plants/${plant._id}`} ><div className="font-bold text-xl mb-2 text-center text-green-700">{plant.name}</div></Link>
                                 </div>
                                 <div className="px-6 pt-4 pb-2">
                                     {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Easy Care</span> */}

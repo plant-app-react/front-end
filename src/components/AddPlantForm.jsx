@@ -153,7 +153,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     </label>
                 </div>
                 <div className="flex justify-center mt-8">
-                    <button type="submit" className="bg-green-700 hover:bg-green-600 my-4 text-white text-sm lg:text-lg lg:font-bold py-2 px-4 rounded-full ">Add</button>
+                    <button type="submit" className="bg-green-700 hover:bg-green-600 my-4 text-white text-sm lg:text-lg font-bold py-1 px-4 rounded-full ">Add</button>
                 </div>
             </form>
         </div>

@@ -35,7 +35,7 @@ function SignupPage() {
 
 
     return (
-        <div className="pb-4 mb-2 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
+        <div className="pb-4 mt-16 mb-2 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
 
 
             <form

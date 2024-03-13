@@ -37,7 +37,7 @@ function LoginPage() {
     };
 
     return (
-        <div className="p-2 pb-4 mb-10 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
+        <div className="p-2 pb-4 mt-16 mb-10 rounded-lg shadow-md flex flex-col min-w-min max-w-md relative mx-auto">
 
 
             <form
