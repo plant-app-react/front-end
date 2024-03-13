@@ -14,12 +14,18 @@ const UpdateCarePlan = () => {
 
     const [water, setWater] = useState("")
     const [fertilize, setFertilize] = useState("")
+    const [mist, setMist] = useState("")
+    const [clean, setClean] = useState("")
+    const [repot, setRepot] = useState("")
 
     useEffect(() => {
         axios.get(`${API_URL}/plants/${plantId}/careplan`)
             .then((res) => {
                 setWater(res.data.water)
                 setFertilize(res.data.fertilize)
+                setMist(res.data.mist)
+                setClean(res.data.clean)
+                setRepot(res.data.repot)
             })
             .catch((e) => {
                 console.log(e)
@@ -30,7 +36,10 @@ const UpdateCarePlan = () => {
         e.preventDefault();
         const newCarePlan = {
             water: water,
-            fertilize: fertilize
+            fertilize: fertilize,
+            mist: mist,
+            clean: clean,
+            repot: repot
         };
 
         axios
@@ -80,30 +89,30 @@ const UpdateCarePlan = () => {
                     Mist:
                     <input
                         type="date"
-                        name="fertilize"
-                        value={fertilize}
-                        placeholder={fertilize}
-                        onChange={(e) => setFertilize(e.target.value)}
+                        name="mist"
+                        value={mist}
+                        placeholder={mist}
+                        onChange={(e) => setMist(e.target.value)}
                     />
                 </label>
                 <label>
                     Clean:
                     <input
                         type="date"
-                        name="fertilize"
-                        value={fertilize}
-                        placeholder={fertilize}
-                        onChange={(e) => setFertilize(e.target.value)}
+                        name="clean"
+                        value={clean}
+                        placeholder={clean}
+                        onChange={(e) => setClean(e.target.value)}
                     />
                 </label>
                 <label>
                     Repot:
                     <input
                         type="date"
-                        name="fertilize"
-                        value={fertilize}
-                        placeholder={fertilize}
-                        onChange={(e) => setFertilize(e.target.value)}
+                        name="repot"
+                        value={repot}
+                        placeholder={repot}
+                        onChange={(e) => setRepot(e.target.value)}
                     />
                 </label>
 
