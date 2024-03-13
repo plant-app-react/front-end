@@ -15,6 +15,7 @@ import UpdateCarePlan from './pages/UpdateCarePlan'
 import IsPrivate from './components/IsPrivate'
 import Logout from './components/Logout'
 import About from "./pages/About"
+import CarePlans from './pages/CarePlans'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/plants/:plantId" element={<IsPrivate><PlantDetails /></IsPrivate>} />
         <Route path="/plants/:plantId/addcareplan" element={<IsPrivate><AddCarePlan /></IsPrivate>} />
         <Route path="/plants/:plantId/updatecareplan" element={<IsPrivate><UpdateCarePlan /></IsPrivate>} />
+        <Route path="/careplans" element={<CarePlans />} />
         <Route path="/about" element={<About />}></Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />

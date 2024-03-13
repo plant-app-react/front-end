@@ -19,6 +19,7 @@ function Navbar() {
                         <NavLink to="/" className="mx-2 text-xs text-stone-100 font-semibold hover:underline lg:text-lg lg:font-bold">Home</NavLink>
                         <NavLink to="/plants" className="mx-2 text-xs font-semibold text-stone-50 hover:underline lg:text-lg lg:font-bold">Plants</NavLink>
                         <NavLink to="/plants/favorites" className="mx-2 text-xs font-semibold text-stone-50 hover:underline lg:text-lg lg:font-bold">Favorites</NavLink>
+                        <NavLink to="/careplans" className="mx-2 text-xs font-semibold text-stone-50 hover:underline lg:text-lg lg:font-bold">Care Plans</NavLink>
                         <Link to="/logout" onClick={logOutUser} className="mx-2 text-xs font-semibold text-stone-50 hover:underline lg:text-lg lg:font-bold">Logout</Link>
                     </>
                 ) : (

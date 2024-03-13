@@ -76,11 +76,6 @@ function PlantList() {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then(() => {
-                // if (!favorites.includes(plantId)) {
-                //     setFavorites([...favorites, plantId])
-                // } else {
-                //     setFavorites(favorites.filter(id => id !== plantId))
-                // }
                 displayFavorites()
             })
             .catch((error) => {
