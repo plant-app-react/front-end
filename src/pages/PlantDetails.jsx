@@ -23,7 +23,7 @@ function PlantDetails() {
             .get(`${API_URL}/plants/${plantId}`)
             .then((response) => {
                 setPlant(response.data);
-                console.log(response.data)
+                console.log(response.data, "getallplants")
             })
             .catch((error) => console.log(error));
     };
@@ -72,7 +72,7 @@ function PlantDetails() {
     return (
 
         <>
-            {console.log(plant.difficulty, "Plant is")}
+            {console.log(plant.difficulty, "Plant is", plant.directSunlight, plant.toxicity, plant.location)}
             <div className="flex justify-center items-center mx-auto mt-20">
                 <h2 className="text-2xl lg:text-5xl font-semibold text-green-600">{plant && plant.name}</h2>
             </div>
@@ -104,7 +104,7 @@ function PlantDetails() {
                                 <div className="flex justify-evenly mt-2">
                                     <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
                                     <Link to={`/plants/${plant._id}/updatecareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Edit</Link>
-                                    <button onClick={deleteCarePlan} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-28"><MdDeleteOutline /></button>
+                                    <button onClick={deleteCarePlan} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white "><MdDeleteOutline /></button>
                                     {/* <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button> */}
                                 </div>
                             </div>
@@ -112,7 +112,7 @@ function PlantDetails() {
                     </div>
                 </div >
             </div >
-            <div className="mx-auto text-center mt-4 mb-8 p-1 w-16 bg-green-700 text-stone-50 rounded-full hover:bg-green-600 cursor-pointer lg:mt-16 "><Link to="/plants" >Back</Link></div>
+            <Link to="/plants" ><p className="mx-auto text-center mt-4 mb-8 p-1 w-16 bg-green-700 text-stone-50 rounded-full hover:bg-green-600 cursor-pointer lg:mt-16 ">Back</p></Link>
         </>
     )
 }

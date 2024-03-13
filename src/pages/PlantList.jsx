@@ -22,7 +22,6 @@ function PlantList() {
             .get(`${API_URL}/plants`)
             .then((response) => {
                 setPlants(response.data);
-                console.log(response.data)
             })
             .catch((error) => console.log(error));
     };
@@ -47,7 +46,7 @@ function PlantList() {
                 { headers: { Authorization: `Bearer ${storedToken}` } }
             )
             .then((response) => {
-                console.log(response)
+
                 getAllPlants()
             })
             .catch((error) => {
@@ -63,7 +62,6 @@ function PlantList() {
                 headers: { Authorization: `Bearer ${storedToken}` }
             })
             .then((response) => {
-                console.log(response.data)
                 setFavorites(response.data);
             })
             .catch((error) => console.log(error));
@@ -110,18 +108,18 @@ function PlantList() {
                     plants.map(
                         (plant) => (
 
-                            <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105" key={plant._id}>
+                            <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105 min-w-64" key={plant._id}>
                                 <div className="h-96 relative">
                                     <Link to={`/plants/${plant._id}`} ><img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} /></Link>
                                 </div>
                                 <div className="px-6 py-4">
                                     <Link to={`/plants/${plant._id}`} ><div className="font-bold text-xl mb-2 text-center text-green-700">{plant.name}</div></Link>
                                 </div>
-                                <div className="px-6 pt-4 pb-2">
+                                <div className="px-6 pt-4 pb-2 flex justify-end">
                                     {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Easy Care</span> */}
-                                    <Link to={`/plants/${plant._id}`} >
+                                    {/* <Link to={`/plants/${plant._id}`} >
                                         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-green-600 hover:text-white">More Details</span>
-                                    </Link>
+                                    </Link> */}
                                     <button onClick={() => toggleFavorite(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-300 hover:text-white">
                                         {isFavorite(plant._id) ? (
                                             <IoHeart />
@@ -129,7 +127,7 @@ function PlantList() {
                                             <IoMdHeartEmpty />
                                         )}
                                     </button>
-                                    <button onClick={() => deletePlant(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-16"><MdDeleteOutline /></button>
+                                    <button onClick={() => deletePlant(plant._id)} className="bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white"><MdDeleteOutline /></button>
                                 </div>
                             </div>
 
