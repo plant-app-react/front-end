@@ -15,6 +15,14 @@ const AddPlantForm = ({ handleAddPlant }) => {
     const [difficulty, setDifficulty] = useState("")
     const [isImageLoaded, setIsImageLoaded] = useState(false)
 
+    const handleLocationChange = (e) => {
+        setLocation(e.target.value);
+    };
+
+    // const handleDifficultyChange = (e) => {
+    //     setDifficulty(e.target.value);
+    //     console.log("Difficulty", e.target.value);
+    // };
 
     const handleFileUpload = (e) => {
 
@@ -51,6 +59,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                 handleAddPlant(res.data)
                 setName("")
                 setImage("")
+                setDifficulty("")
                 setDirectSunlight(false);
                 setToxicity(false);
             })
@@ -97,7 +106,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             name="location"
                             value="interior"
                             checked={location === "interior"}
-                            onChange={(e) => setLocation(e.target.value)}
+                            onChange={handleLocationChange}
                         />
                         <label className="text-gray-900">Interior</label>
                         <input
@@ -106,7 +115,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             name="location"
                             value="exterior"
                             checked={location === "exterior"}
-                            onChange={(e) => setLocation(e.target.value)}
+                            onChange={handleLocationChange}
                         />
                         <label className="text-gray-900">Exterior</label>
                     </label>
@@ -136,6 +145,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             className="mx-2"
                             type="radio"
                             name="difficulty"
+                            required
                             value="Easy Care"
                             checked={difficulty === "Easy Care"}
                             onChange={(e) => setDifficulty(e.target.value)}
@@ -145,6 +155,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             className="mx-2"
                             type="radio"
                             name="difficulty"
+                            required
                             value="High Maintenance"
                             checked={difficulty === "High Maintenance"}
                             onChange={(e) => setDifficulty(e.target.value)}

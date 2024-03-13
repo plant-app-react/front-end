@@ -134,7 +134,7 @@ function PlantList() {
                                             <IoMdHeartEmpty />
                                         )}
                                     </button>
-                                    <button onClick={() => deletePlant(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-28"><MdDeleteOutline /></button>
+                                    <button onClick={() => deletePlant(plant._id)} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white lg:ml-16"><MdDeleteOutline /></button>
                                 </div>
                             </div>
 
