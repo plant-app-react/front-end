@@ -10,7 +10,7 @@ function Navbar() {
         logOutUser
     } = useContext(AuthContext);
     return (
-        <nav className="flex justify-between items-center bg-green-600 lg:pr-4">
+        <nav className="flex justify-between items-center bg-gradient-to-b from-green-700 to-green-600 lg:pr-4">
             <div className="bg-stone-50"><Link to={"/"}><img className="h-10 lg:h-16" src={Logo} alt="Logo" /></Link></div>
             <div>
                 {isLoggedIn ? (

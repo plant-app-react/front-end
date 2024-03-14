@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function Footer() {
     return (
-        <div className="fixed bottom-0 w-screen bg-green-600 mt-8 text-center lg:mt-16">
+        <div className="fixed bottom-0 w-screen bg-gradient-to-b from-green-700 to-green-600 mt-8 text-center lg:mt-16">
             <Link to="/about" className="text-stone-50">About PlantiePie</Link>
 
         </div>
