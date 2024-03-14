@@ -96,10 +96,10 @@ const CarePlans = () => {
     }
 
     return (
-        <div className="careplans flex">
+        <div className="careplans flex flex-col lg:flex-row mb-24">
 
-            <div className="w-3/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
-                <div className="px-4 py-2">
+            <div className="lg:w-1/4 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
+                <div className="px-4 py-4">
                     <h1 className="text-gray-800 font-bold text-2xl uppercase flex justify-center">Reminders ☝️</h1>
                 </div>
 
@@ -116,13 +116,13 @@ const CarePlans = () => {
                                     <hr />
                                 </ul>
                             )))
-                            : 'You are not taking care of your plants!'
+                            : <p className="text-center">'You are not taking care of your plants!'</p>
                         }
                     </>
                 }
             </div>
 
-            <div className="w-3/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
+            <div className="lg:w-1/4  mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
                 <div className="px-4 py-2">
                     <h1 className="text-gray-800 font-bold text-2xl uppercase flex justify-center">Today's To-Do List 📝</h1>
                 </div>
@@ -140,13 +140,13 @@ const CarePlans = () => {
                                     <hr />
                                 </ul>
                             )))
-                            : 'Nothing to do today'
+                            : <p className="text-center">'Nothing to do today'</p>
                         }
                     </>
                 }
             </div>
 
-            <div className="w-3/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
+            <div className="lg:w-1/4 mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-16 ">
                 <div className="px-4 py-2">
                     <h1 className="text-gray-800 font-bold text-2xl uppercase flex justify-center">Next Day's To-Do List 🙏</h1>
                 </div>
@@ -164,7 +164,7 @@ const CarePlans = () => {
                                     <hr />
                                 </ul>
                             )))
-                            : 'Nothing to do the next days'
+                            : <p className="text-center">'No upcoming tasks for the next few days'</p>
                         }
                     </>
                 }
