@@ -54,22 +54,22 @@ const AddCarePlan = () => {
 
     return (
         <>
-            <div className="flex flex-col mt-24 text-center justify-center items-center">
+            <div className="flex flex-col mt-4 text-center justify-center items-center lg:mt-24 ">
 
-                <form className="flex flex-col gap-4 w-96 p-12 rounded-xl shadow-lg text-xl text-green-700" onSubmit={handleSubmit}>
+                <form className="flex flex-col gap-2 w-96 p-8 rounded-xl shadow-lg  text-green-700 lg:p-12 lg:gap-4" onSubmit={handleSubmit}>
 
-                    <label>
-                        Water:
+                    <label >
+                        <p className="text-left text-sm ml-4 font-semibold lg:text-lg"> Water:</p>
                         <input
                             type="date"
                             name="water"
                             value={newCarePlan.water}
                             onChange={handleValueChanges}
-                            className="w-full border-solid border-gray-300 border-2 m-2 "
+                            className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
-                    <label>
-                        Fertilize:
+                    <label >
+                        <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Fertilize:</p>
                         <input
                             type="date"
                             name="fertilize"
@@ -79,7 +79,7 @@ const AddCarePlan = () => {
                         />
                     </label>
                     <label>
-                        Mist:
+                        <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Mist:</p>
                         <input
                             type="date"
                             name="mist"
@@ -89,7 +89,7 @@ const AddCarePlan = () => {
                         />
                     </label>
                     <label>
-                        Clean:
+                        <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Clean:</p>
                         <input
                             type="date"
                             name="clean"
@@ -98,8 +98,8 @@ const AddCarePlan = () => {
                             className="w-full border-solid border-gray-300 border-2 m-2"
                         />
                     </label>
-                    <label>
-                        Repot:
+                    <label >
+                        <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Repot:</p>
                         <input
                             type="date"
                             name="repot"
@@ -109,8 +109,8 @@ const AddCarePlan = () => {
                         />
                     </label>
 
-                    <button type="submit" className="bg-green-700 text-white text-md rounded-full w-36 py-1 self-center hover:bg-green-600">Create Plan</button>
-                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-24  self-center hover:bg-green-600">Back</button></Link>
+                    <button type="submit" className="bg-green-700 text-white text-md font-semibold rounded-full w-24 p-1 self-center hover:bg-green-600 lg:w-28 lg:text-md">Create Plan</button>
+                    <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md font-semibold rounded-full w-20 p-1 self-center hover:bg-green-600 lg:text-md">Cancel</button></Link>
                 </form>
 
             </div>

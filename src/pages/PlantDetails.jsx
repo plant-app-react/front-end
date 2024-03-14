@@ -102,10 +102,10 @@ function PlantDetails() {
                                     </div>
                                 )}
                                 <div className="flex justify-evenly mt-2">
-                                    <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add Care Plan</Link>
+                                    <Link to={`/plants/${plantId}/addcareplan`} className="bg-green-700 rounded-full px-3 py-1  lg:text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Add</Link>
                                     <Link to={`/plants/${plant._id}/updatecareplan`} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Edit</Link>
                                     <button onClick={deleteCarePlan} className="inline-block bg-gray-200 rounded-full px-1.5 py-1.5 text-sm font-semibold text-gray-700 mr-2 mb-2 hover:bg-red-600 hover:text-white "><MdDeleteOutline /></button>
-                                    {/* <button onClick={deleteCarePlan} className="bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-white mr-2 mb-2 hover:bg-green-600 hover:text-white">Delete Care Plan</button> */}
+
                                 </div>
                             </div>
                         </Accordion>

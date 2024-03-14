@@ -64,58 +64,63 @@ const UpdateCarePlan = () => {
 
 
     return (
-        <div className="mt-36 text-center flex justify-center">
+        <div className="flex flex-col mt-4 text-center justify-center items-center lg:mt-24 ">
 
-            <form className="flex flex-col gap-4 w-96 p-12 rounded-xl shadow-lg text-xl text-green-700 items-center" onSubmit={handleSubmit}>
+            <form className="flex flex-col gap-2 w-96 p-8 rounded-xl shadow-lg  text-green-700 lg:p-12 lg:gap-4" onSubmit={handleSubmit}>
 
                 <label>
-                    Water:
+                    <p className="text-left text-sm ml-4 font-semibold lg:text-lg"> Water:</p>
                     <input
                         type="date"
                         name="water"
                         value={water}
                         placeholder={water}
                         onChange={(e) => setWater(e.target.value)}
+                        className="w-full border-solid border-gray-300 border-2 m-2"
                     />
                 </label>
                 <label>
-                    Fertilize:
+                    <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Fertilize:</p>
                     <input
                         type="date"
                         name="fertilize"
                         value={fertilize}
                         placeholder={fertilize}
                         onChange={(e) => setFertilize(e.target.value)}
+                        className="w-full border-solid border-gray-300 border-2 m-2"
                     />
                 </label>
                 <label>
-                    Mist:
+                    <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Mist:</p>
                     <input
                         type="date"
                         name="mist"
                         value={mist}
                         placeholder={mist}
                         onChange={(e) => setMist(e.target.value)}
+                        className="w-full border-solid border-gray-300 border-2 m-2"
                     />
                 </label>
                 <label>
-                    Clean:
+                    <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Clean:</p>
                     <input
                         type="date"
                         name="clean"
                         value={clean}
                         placeholder={clean}
                         onChange={(e) => setClean(e.target.value)}
+                        className="w-full border-solid border-gray-300 border-2 m-2"
                     />
                 </label>
                 <label>
-                    Repot:
+                    <p className="text-left text-sm ml-4 font-semibold lg:text-lg">Repot:</p>
                     <input
                         type="date"
                         name="repot"
                         value={repot}
                         placeholder={repot}
                         onChange={(e) => setRepot(e.target.value)}
+                        className="w-full border-solid border-gray-300 border-2 m-2"
                     />
                 </label>
 
@@ -123,8 +128,8 @@ const UpdateCarePlan = () => {
 
 
 
-                <button type="submit" className="bg-green-700 text-white rounded-full w-24 p-1">Update</button>
-                <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md rounded-full w-24  self-center hover:bg-green-600">Back</button></Link>
+                <button type="submit" className="bg-green-700 text-white text-md font-semibold w-20 rounded-full self-center hover:bg-green-600 lg:w-20 lg:p-1 lg:text-md">Update</button>
+                <Link to={`/plants/${plantId}`}><button className="bg-green-700 text-white text-md font-semibold rounded-full w-20 p-1 self-center hover:bg-green-600 lg:text-md">Cancel</button></Link>
             </form>
         </div>
     );
