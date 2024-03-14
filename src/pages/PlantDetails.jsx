@@ -82,7 +82,7 @@ function PlantDetails() {
                     <img src={plant.image} alt="Plant" className="rounded-xl h-96" />
 
                     <ul className="flex flex-col gap-8 text-left text-green-600 mt-16">
-                        <li className="font-bold text-xl">Location: <span className="font-normal mx-4">{plant.location}</span></li>
+                        <li className="font-bold text-xl">Location: <span className="font-normal">{plant.location}</span></li>
                         <li className="font-bold text-xl">Sunlight: <span className="font-normal">{plant.directSunlight ? "Yes" : "No"}</span></li>
                         <li className="font-bold text-xl">Care Level: <span className="font-normal">{plant.difficulty === "Easy Care" ? "Easy Care" : "High Maintenance"}</span></li>
                         <li className="font-bold text-xl">Toxicity: <span className="font-normal">{plant.toxicity ? "Yes" : "No"}</span></li>

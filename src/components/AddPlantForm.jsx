@@ -15,16 +15,27 @@ const AddPlantForm = ({ handleAddPlant }) => {
     const [difficulty, setDifficulty] = useState("")
     const [imageLoaded, setImageLoaded] = useState(null)
 
-    const handleLocationChange = (e) => {
-        setLocation(e.target.value);
+    const handleNameChange = (_e) => {
+        setName(_e.target.value);
+    };
+    const handleLocationChange = (_e) => {
+        setLocation(_e.target.value);
     };
 
-    const handleDifficulty = (_e) => {
+    const handleDifficultyChange = (_e) => {
         setDifficulty(_e.target.value);
     };
 
+    const handleSunlightChange = (_e) => {
+        setDirectSunlight(_e.target.checked);
+    };
+
+    const handleToxicityChange = (_e) => {
+        setToxicity(_e.target.checked)
+    };
+
     const handleFileUpload = (_e) => {
-        setImageLoaded("isLoading")
+        //setImageLoaded("isLoading")
         const uploadData = new FormData();
         uploadData.append("image", _e.target.files[0]);
         uploadImage(uploadData)
@@ -65,8 +76,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                 console.log(e);
             });
     }
-    //TODO: make all functions for changing states 
-    //## (e)=>setName(e.target.value) or const handleNameChange=()=>{} ##
+
 
     return (
         <div className="flex flex-col justify-center items-center px-6">
@@ -80,7 +90,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             type="text"
                             name="name"
                             value={name}
-                            onChange={(e) => setName(e.target.value)}
+                            onChange={handleNameChange}
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
@@ -110,6 +120,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             className="my-2 mx-4"
                             type="radio"
                             name="location"
+                            value="exterior"
                             checked={location === "exterior"}
                             onChange={handleLocationChange}
                         />
@@ -121,7 +132,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             type="checkbox"
                             name="directSunlight"
                             checked={directSunlight}
-                            onChange={(e) => setDirectSunlight(e.target.checked)}
+                            onChange={handleSunlightChange}
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
@@ -131,7 +142,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             type="checkbox"
                             name="toxicity"
                             checked={toxicity}
-                            onChange={(e) => setToxicity(e.target.checked)}
+                            onChange={handleToxicityChange}
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
@@ -143,7 +154,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             name="difficulty"
                             value="Easy Care"
                             checked={difficulty === "Easy Care"}
-                            onChange={handleDifficulty}
+                            onChange={handleDifficultyChange}
                         />
                         <label className="text-gray-900">High Maintenance</label>
                         <input
@@ -152,7 +163,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                             name="difficulty"
                             value="High Maintenance"
                             checked={difficulty === "High Maintenance"}
-                            onChange={(e) => setDifficulty(e.target.value)}
+                            onChange={handleDifficultyChange}
                         />
                     </label>
                 </div>
