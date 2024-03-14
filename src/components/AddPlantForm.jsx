@@ -35,7 +35,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
     };
 
     const handleFileUpload = (_e) => {
-        //setImageLoaded("isLoading")
+        setImageLoaded("isLoading")
         const uploadData = new FormData();
         uploadData.append("image", _e.target.files[0]);
         uploadImage(uploadData)
@@ -168,8 +168,8 @@ const AddPlantForm = ({ handleAddPlant }) => {
                     </label>
                 </div>
                 <div className="flex justify-center mt-8">
-                    {/* disabled={imageLoaded === "isLoading"} */}
-                    <button type="submit" className="disabled:bg-gray-100 disabled:text-black bg-green-700 hover:bg-green-600 my-4 text-white text-sm lg:text-lg font-bold py-1 px-4 rounded-full ">Add</button>
+
+                    <button disabled={imageLoaded === "isLoading"} type="submit" className="disabled:bg-gray-100 disabled:text-black bg-green-700 hover:bg-green-600 my-4 text-white text-sm lg:text-lg font-bold py-1 px-4 rounded-full ">Add</button>
                 </div>
             </form>
         </div>
