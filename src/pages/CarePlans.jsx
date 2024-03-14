@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import moment from 'moment';
-import "./CarePlans.css"
 import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
@@ -29,7 +28,7 @@ const CarePlans = () => {
 
     console.log(careplans)
 
-  
+
 
     const remindersPast = (date, propertyName, plantName, plantId) => {
         let now = new Date();
@@ -50,7 +49,7 @@ const CarePlans = () => {
         }
     }
 
-  
+
 
     const calcToDoesToday = (date, propertyName, plantName, plantId) => {
         let now = new Date();

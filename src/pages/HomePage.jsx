@@ -29,7 +29,7 @@ function HomePage() {
                         <h4 className="text-2xl my-4 mx-6 text-green-600 lg:my-8">We've got you covered</h4>
                         <p className="text-md mx-8 lg:text-xl lg:my-8 text-green-600">With PlantiePie, create customized care plans<br />
                             and unlock your plant's full potential</p>
-                        <p className="text-sm my-2 mx-14 lg:text-xl lg:my-8 text-green-700">Track your green friends growth, know precisely <br />when to water, fertilize and more.<br />
+                        <p className="text-sm my-2 mx-14 lg:text-lg lg:my-8 text-green-700">Track your green friends growth, know precisely <br />when to water, fertilize and more.<br />
 
                             Let PlantiePie take the worry out of plant care, so you <br />
                             can enjoy watching your plants thrive

@@ -84,9 +84,9 @@ const AddPlantForm = ({ handleAddPlant }) => {
             <form onSubmit={handleSubmit} className="text-3xl rounded-lg shadow-lg max-w-screen-sm m-6 px-6">
                 <div className="max-w-sm mx-auto">
                     <label className="text-green-700 block text-sm font-medium">
-                        Name:
+                        Name
                         <input
-                            className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs h-8 lg:h-10"
+                            className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs h-8 lg:h-8"
                             type="text"
                             name="name"
                             value={name}
@@ -94,9 +94,9 @@ const AddPlantForm = ({ handleAddPlant }) => {
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
-                        Image:
+                        Image
                         <input
-                            className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs h-8 lh:h-10"
+                            className="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs h-8 lg:h-9"
                             type="file"
                             name="image"
                             onChange={handleFileUpload}
@@ -105,10 +105,10 @@ const AddPlantForm = ({ handleAddPlant }) => {
 
 
                     <label className="text-green-700 block text-sm font-medium mt-3">
-                        Location:
-                        <label className="text-gray-900">Interior</label>
+                        Location
+                        <label className="text-gray-900 m-2">Interior</label>
                         <input
-                            className="m-2"
+                            className="mx-2"
                             type="radio"
                             name="location"
                             value="interior"
@@ -117,7 +117,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                         />
                         <label className="text-gray-900">Exterior</label>
                         <input
-                            className="my-2 mx-4"
+                            className="mx-2"
                             type="radio"
                             name="location"
                             value="exterior"
@@ -126,7 +126,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
-                        Direct Sunlight:
+                        Direct Sunlight
                         <input
                             className="m-2"
                             type="checkbox"
@@ -136,7 +136,7 @@ const AddPlantForm = ({ handleAddPlant }) => {
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
-                        Toxicity:
+                        Toxicity
                         <input
                             className="m-2"
                             type="checkbox"
@@ -146,8 +146,8 @@ const AddPlantForm = ({ handleAddPlant }) => {
                         />
                     </label>
                     <label className="text-green-700 block text-sm font-medium mt-3">
-                        Difficulty:
-                        <label className="text-gray-900">Easy Care</label>
+                        Difficulty
+                        <label className="text-gray-900 p-2">Easy Care</label>
                         <input
                             className="mx-2"
                             type="radio"
