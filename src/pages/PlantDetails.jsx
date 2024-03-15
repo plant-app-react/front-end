@@ -66,6 +66,9 @@ function PlantDetails() {
     }
 
     const calcDays = (date) => {
+        if (!moment(date).isValid()) {
+            return ''; // Return nothing if the date is invalid
+        }
         return moment(date).startOf('day').fromNow();
     }
 

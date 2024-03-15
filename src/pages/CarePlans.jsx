@@ -31,6 +31,9 @@ const CarePlans = () => {
 
 
     const remindersPast = (date, propertyName, plantName, plantId) => {
+        if (!moment(date).isValid()) {
+            return ''; // Return nothing if the date is invalid
+        }
         let now = new Date();
         const formattedNow = moment(now).startOf('day');
         const formattedDate = moment(date).startOf('day');
@@ -52,6 +55,9 @@ const CarePlans = () => {
 
 
     const calcToDoesToday = (date, propertyName, plantName, plantId) => {
+        if (!moment(date).isValid()) {
+            return ''; // Return nothing if the date is invalid
+        }
         let now = new Date();
         const formattedNow = moment(now).startOf('day');
         const formattedDate = moment(date).startOf('day');
@@ -74,6 +80,9 @@ const CarePlans = () => {
     }
 
     const calcToDoesFuture = (date, propertyName, plantName, plantId) => {
+        if (!moment(date).isValid()) {
+            return ''; // Return nothing if the date is invalid
+        }
         let now = new Date();
         const formattedNow = moment(now).startOf('day');
         const formattedDate = moment(date).startOf('day');
