@@ -123,7 +123,7 @@ function PlantList() {
                             plants.map(
                                 (plant) => (
 
-                                    <div className="w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105 min-w-64" key={plant._id}>
+                                    <div className="index-1 w-10/12 overflow-hidden shadow-lg rounded-2xl transition duration-300 ease-in-out hover:scale-105 min-w-64" key={plant._id}>
                                         <div className="h-96 relative">
                                             <Link to={`/plants/${plant._id}`} ><img className="w-full h-full object-cover" src={plant.image} alt={plant.name} style={{ maxHeight: "450px" }} /></Link>
                                         </div>
