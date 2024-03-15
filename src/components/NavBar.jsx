@@ -57,7 +57,7 @@ function Navbar() {
                     <button onClick={toggleNavBar} className=" text-2xl text-stone-50">{isOpen ? <SlClose /> : <GiHamburgerMenu />}</button>
                 </div>
                 {isOpen && (
-                    <div className="md:hidden absolute top-[4.5rem] right-0 w-[80%] min-w-[250px] z-1000">
+                    <div className="hidden-menu md:hidden absolute top-[4.5rem] right-0 w-[80%] min-w-[250px] z-1000">
                         <NavLinks />
                     </div>
                 )}

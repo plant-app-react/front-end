@@ -18,6 +18,7 @@ function About() {
 
                 </div>
                 <div>
+                    <img className="rounded-full h-48 mb-12" src="https://media.licdn.com/dms/image/D4D03AQEiEQoZFSd2jw/profile-displayphoto-shrink_200_200/0/1710493574823?e=1715817600&v=beta&t=hGhw8tYZc0XcCp6Ftd4aitdbFpYOLf-76BCSYhwXqZI" />
                     <h4 className="text-3xl text-green-700 font-semibold">Amparo Cabezuelo</h4>
                     <div className="flex gap-8 mt-8 justify-center text-4xl">
                         <a href="https://www.linkedin.com/in/amparo-cabezuelo-sep%C3%BAlveda-50b2272ab/" target="blank"><FaLinkedinIn className=" text-blue-700" /></a>
