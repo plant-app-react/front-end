@@ -1,8 +1,30 @@
-# React + Vite
+# Plantie Pie
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Is a plant care tracker app
 
-Currently, two official plugins are available:
+### Upload your own plants, register when you watered, fertilized, mist them and more
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Know when you have upcoming tasks to complete and keep your plants beautiful
+
+This is the repo for the Frontend of our React Vite app
+
+The repo for the Backend (Express API) can be found here:
+https://github.com/plant-app-react/back-end
+
+## Intructions to run this app on your local
+
+Git Clone
+npm install
+
+Create an .env file and add the following enviroment variables:
+VITE_API_URL=http://localhost:5005
+
+npm run dev
+
+## Link to the demo:
+
+https://plantie-pie.netlify.app/
+
+## Link to the API:
+
+https://plantie-pie-api.adaptable.app/
